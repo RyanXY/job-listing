@@ -9,3 +9,4 @@ module FlashesHelper
     flash.to_hash.slice "alert", "notice","warning"
   end
 end
+ 
