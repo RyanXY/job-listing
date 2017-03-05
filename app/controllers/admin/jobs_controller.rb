@@ -24,7 +24,7 @@ def create
     redirect_to admin_jobs_path
 
   else
-    render new
+    render :new
 
   end
 
@@ -38,11 +38,11 @@ end
 
 def update
   @job = Job.find(params[:id])
-  if @job.update
+  if @job.update(job_params)
     redirect_to admin_jobs_path
 
   else
-    render edit
+    render :edit
 
   end
 
@@ -61,8 +61,7 @@ end
 private
 
 def job_params
-  params.require(:job).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email)
-
+  params.require(:job).permit(:title, :description, :wage_upper_bound, :wage_lower_bound, :contact_email,:is_hidden)
 end
 
 
